@@ -32,8 +32,8 @@
                     <small v-else="tarea.completed">Incompleta</small>
                 </li>
                 <li class="form-inline">
-                    <input v-on:keyup.enter v-model="nuevaTarea" type="text">
-                    <!-- <button @click="anadirTarea" class="btn btn-primary">+</button> -->
+                    <input v-on:keyup.13="anadirTarea" v-model="nuevaTarea" type="text" class="form-control">
+                    <button @click="anadirTarea" class="btn btn-primary">+</button>
                 </li>
 
             </ul>

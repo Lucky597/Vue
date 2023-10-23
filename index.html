@@ -13,6 +13,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Aprendiendo VueJS</title>
+    <style>
+        .glyphicon-check, .glyphicon-unchecked{
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -29,8 +34,8 @@
                     <span v-text="tarea.title"></span> <!-- viendo el titulo de cada tarea del for -->
                     <!-- <small v-if="tarea.completed">Completa</small>  viendo si es tru o false 
                     <small v-else="tarea.completed">Incompleta</small> -->
-                    <span class="glyphicon glyphicon-unchecked"></span>
-                    <span class="glyphicon glyphicon-check"></span>
+                    <span @click="tarea.completed = false" v-if="tarea.completed" class="glyphicon glyphicon-check"></span>                   
+                    <span @click="tarea.completed = true" v-else class="glyphicon glyphicon-unchecked"></span>
                     <!-- <a href="#"><span class="glyphicon glyphicon-checked">jjjjjjjjjj</span></a> -->
                 </li>
                 <li class="form-inline">
@@ -38,8 +43,8 @@
                 </li>
 
             </ul>
-            <pre>
-                {{$data}}
+            <pre> <!-- Inspeccionar instancia de Vue-->
+                {{$data}} <!-- Objeto Data-->
             </pre>
         </div>
     </div>

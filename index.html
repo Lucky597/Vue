@@ -32,8 +32,8 @@
                     <small v-else="tarea.completed">Sin hacer</small>
                 </li>
                 <li class="form-inline">
-                    <input v-on:keyup.ENER="añadirTarea" v-model="nuevaTarea" type="text">
-                    <!-- <button @click="añadirTarea"  class="btn btn-primary">+</button> -->
+                    <input v-model="nuevaTarea" type="text">
+                    <button @click="anadirTarea" class="btn btn-primary">+</button>
                 </li>
 
             </ul>
@@ -56,17 +56,22 @@
                 ]
             },
             methods: {
-                añadirTarea: function (){
-                    alert('fsdfsfsfsfs')
+                // anadirTarea: async function () {
+                //     setTimeout(() => { alert('Ya entre a la funccion') }, 2000)
+                anadirTarea: function () {
+                    alert('Ya entre a la funccion') 
                     this.tareas.push({
-                        title:this.nuevaTarea,
+                        title: this.nuevaTarea,
                         completed: true
                     });
                     this.nuevaTarea = "";
                 },
                 reverse: function () {
+
                     this.message = this.message.split('').reverse().join(''); // split conviente un array de caracteres luego son invertido y luego unidos
                 }
+
+                
             }
         }); 
     </script>

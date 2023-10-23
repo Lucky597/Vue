@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo VueJS</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-if="message.length > 2 ">Hola <span v-text="message"> </span></h1>
+        <h1 v-else="message.length > 2 ">Escribe tu nombre </span></h1>
+        <!-- <h1>Hola <span v-text="message"> </span></h1> -->
+        <!-- <h1 v-text="'Hola '+message"></h1>  -->
+        <!-- v-text (evita pestañeo)v-model v-show son directivas -->
+        <!-- <h1 v-text="message">Hola {{message}}</h1> -->
+        <input type="text" v-model="message">
+        <h2>Lista de tareas</h2>
+        <ul>
+            <!-- <li v-text="tareas[1]"></li> -->
+            <!-- <li v-for="tarea in tareas">{{ tarea }}</li> -->
+            <!-- <li v-for="tarea in tareas" v-text="tarea">{{ tarea }}</li> -->
+            <li v-for="tarea in tareas"> <!-- recorreindo el for -->
+                 <span v-text="tarea.title"></span> <!-- viendo el titulo de cada tarea del for -->
+                 <small v-if="tarea.completed">Completa</small> <!-- viendo si es tru o false -->
+                 <small v-else="tarea.completed">Sin hacer</small> 
+                </li>
+           
+        </ul>
+    </div>
+
+    <h2>Hola VueJS</h2>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <!-- <script src="https://unpkg.com/vue"></script> No funciona ahora-->
+    <script>
+        var app = new Vue({ //para interactuar con Vue
+            el: '#app', //elemeto del DOM
+            data: {
+                message: "Aprendible",
+                tareas: [
+                    {title: "Aprender VueJs", completed: true},
+                    {title: "Travel spain", completed: true},
+                    {title: "Learning Inglish", completed: false},
+                ]
+            }
+        }); 
+    </script>
+</body>
+
+</html>

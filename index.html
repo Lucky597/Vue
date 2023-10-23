@@ -29,11 +29,11 @@
                 <li v-for="tarea in tareas"> <!-- recorreindo el for -->
                     <span v-text="tarea.title"></span> <!-- viendo el titulo de cada tarea del for -->
                     <small v-if="tarea.completed">Completa</small> <!-- viendo si es tru o false -->
-                    <small v-else="tarea.completed">Sin hacer</small>
+                    <small v-else="tarea.completed">Incompleta</small>
                 </li>
                 <li class="form-inline">
-                    <input v-model="nuevaTarea" type="text">
-                    <button @click="anadirTarea" class="btn btn-primary">+</button>
+                    <input v-on:keyup.enter v-model="nuevaTarea" type="text">
+                    <!-- <button @click="anadirTarea" class="btn btn-primary">+</button> -->
                 </li>
 
             </ul>
@@ -59,12 +59,12 @@
                 // anadirTarea: async function () {
                 //     setTimeout(() => { alert('Ya entre a la funccion') }, 2000)
                 anadirTarea: function () {
-                    alert('Ya entre a la funccion') 
+                    // alert('Ya entre a la funccion') 
                     this.tareas.push({
                         title: this.nuevaTarea,
-                        completed: true
+                        completed: false
                     });
-                    this.nuevaTarea = "";
+                    this.nuevaTarea = "";//para que no quede en la cajita
                 },
                 reverse: function () {
 

@@ -28,15 +28,20 @@
                 <!-- <li v-for="tarea in tareas" v-text="tarea">{{ tarea }}</li> -->
                 <li v-for="tarea in tareas"> <!-- recorreindo el for -->
                     <span v-text="tarea.title"></span> <!-- viendo el titulo de cada tarea del for -->
-                    <small v-if="tarea.completed">Completa</small> <!-- viendo si es tru o false -->
-                    <small v-else="tarea.completed">Incompleta</small>
+                    <!-- <small v-if="tarea.completed">Completa</small>  viendo si es tru o false 
+                    <small v-else="tarea.completed">Incompleta</small> -->
+                    <span v-if="tarea.completed" class="glyphicon glyphicon-unchecked"></span>
+                    <span v-else class="glyphicon glyphicon-checked"></span>
                 </li>
                 <li class="form-inline">
                     <input v-on:keyup.13="anadirTarea" v-model="nuevaTarea" type="text" class="form-control">
-                    <button @click="anadirTarea" class="btn btn-primary">+</button>
+                    <!-- <button @click="anadirTarea" class="btn btn-primary">+</button> -->
                 </li>
 
             </ul>
+            <pre>
+                {{ $data}}
+            </pre>
         </div>
     </div>
     <h2>Hola VueJS</h2>
@@ -60,6 +65,7 @@
                 //     setTimeout(() => { alert('Ya entre a la funccion') }, 2000)
                 anadirTarea: function () {
                     // alert('Ya entre a la funccion') 
+                    if (this.nuevaTarea.length<1) return alert("escribe algo"); // si no hay nada escrito en el input entoces reurn osea salir de la funcion
                     this.tareas.push({
                         title: this.nuevaTarea,
                         completed: false
